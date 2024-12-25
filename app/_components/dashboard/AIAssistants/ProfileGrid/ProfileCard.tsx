@@ -17,9 +17,9 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
   return (
     <motion.div
       whileHover={{ y: -4 }}
-      className="bg-gradient-to-r 
+      className="bg-gradient-to-b
      from-teal-100 via-[#ffffff] to-teal-100
-     dark:from-[#000000] dark:via-stone-900 dark:to-[#000000] flex flex-col rounded-3xl p-6 shadow-sm hover:shadow-md
+     dark:from-[#000000]/50 dark:via-stone-900/50 dark:to-[#000000]/50 flex flex-col rounded-3xl p-6 shadow-sm hover:shadow-md
                  border border-gray-100 dark:border-gray-800 transition-all duration-300"
     >
       <CardHeader profile={profile} />

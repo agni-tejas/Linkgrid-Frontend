@@ -10,6 +10,10 @@ import { MotionContainer } from "./requests/animations/MotionContainer";
 import InvitationsTable from "./requests/InvitationsTable";
 import { mockInvitations } from "@/app/_lib/mockInvitations";
 import { RecommendationsPage } from "./Recommendations/RecommendationsPage";
+import { SettingsPage } from "./Settings/SettingsPage";
+import { GroupsPage } from "./Groups/GroupsPage";
+import { ProcessingPage } from "./Processing/ProcessingPage";
+import { PricingPage } from "./Pricing/PricingPage";
 
 function Main() {
   const [activeSection, setActiveSection] = useState<string>("search");
@@ -42,10 +46,17 @@ function Main() {
           <AIAssistantsPage />
         ) : activeSection === "recommend" ? (
           <RecommendationsPage />
+        ) : activeSection === "settings" ? (
+          <SettingsPage />
+        ) : activeSection === "groups" ? (
+          <GroupsPage />
+        ) : activeSection === "plan" ? (
+          <PricingPage />
+        ) : activeSection === "plan" ? (
+          <ProcessingPage />
         ) : (
           <>
-            <h1 className="text-2xl font-bold mb-4">Welcome to Linkgrid</h1>
-            <p>Your enterprise collaboration platform</p>
+            <ProcessingPage />
           </>
         )}
       </main>

@@ -197,6 +197,7 @@ module.exports = {
       boxShadow: {
         sidebar: "0 0 40px 0 rgba(0, 0, 0, 0.04)",
         hover: "0 4px 12px 0 rgba(0, 0, 0, 0.05)",
+        input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
       },
       fontFamily: {
         sans: ["Inter var", "Inter", "system-ui", "sans-serif"],

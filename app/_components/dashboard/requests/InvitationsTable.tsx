@@ -149,25 +149,6 @@ const InvitationsTable: React.FC<InvitationsTableProps> = ({ invitations }) => {
             <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-800 ">
               <thead>
                 <tr className="bg-gray-50 dark:bg-stone-950">
-                  <th scope="col" className="pr-3 py-4">
-                    <input
-                      type="checkbox"
-                      checked={
-                        selectedIds.length === paginatedInvitations.length
-                      }
-                      onChange={(e) =>
-                        e.target.checked
-                          ? selectAll(
-                              paginatedInvitations.map((_, index) =>
-                                index.toString()
-                              )
-                            )
-                          : clearSelection()
-                      }
-                      className="rounded-full border-gray-300 text-blue-600 
-                        focus:ring-blue-500 focus:ring-offset-0"
-                    />
-                  </th>
                   <th scope="col" className="pr-36 py-4">
                     <button
                       className="group inline-flex items-center text-sm font-semibold text-gray-900 dark:text-[#d3d3d3]"
@@ -227,15 +208,6 @@ const InvitationsTable: React.FC<InvitationsTableProps> = ({ invitations }) => {
                     key={index}
                     className="hover:bg-sky-500/20 dark:hover:bg-sky-500/10 transition-all cursor-pointer"
                   >
-                    <td className="px-6 py-4">
-                      <input
-                        type="checkbox"
-                        checked={selectedIds.includes(index.toString())}
-                        onChange={() => toggleSelection(index.toString())}
-                        className="rounded border-gray-300 text-blue-600 
-                          focus:ring-blue-500 focus:ring-offset-0"
-                      />
-                    </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center">
                         <div className="relative">
@@ -305,12 +277,6 @@ const InvitationsTable: React.FC<InvitationsTableProps> = ({ invitations }) => {
           />
         </div>
       </div>
-
-      <BatchActionsBar
-        selectedIds={selectedIds}
-        onClearSelection={clearSelection}
-        onBatchAction={handleBatchAction}
-      />
 
       {selectedInvitation && (
         <ProfileModal

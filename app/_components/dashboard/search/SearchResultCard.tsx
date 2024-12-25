@@ -25,15 +25,15 @@ export const SearchResultCard: React.FC<SearchResultCardProps> = ({
   return (
     <motion.div
       whileHover={{ y: -4 }}
-      className="group relative bg-[#F5F5F5] dark:bg-[#000000] rounded-2xl overflow-hidden
+      className="group relative bg-[#F5F5F5]/40 dark:bg-[#000000]/40 rounded-2xl overflow-hidden
                  transition-all duration-0 hover:shadow-xl border
                   border-black/20 dark:border-white/20  backdrop-blur-sm"
     >
       {/* Gradient Border Effect */}
       <div
-        className="absolute inset-0  bg-gradient-to-r 
-     from-[#B3E5FF] via-[#E0F7FF] to-[#C6DDFB]
-     dark:from-[#000000] dark:via-[#030B2C] dark:to-[#000000]
+        className="absolute inset-0  bg-gradient-to-b 
+     from-[#E0F7FF] via-[#E0F7FF] to-[#B3E5FF]
+     dark:from-[#000000] dark:via-[#000000] dark:to-[#030B2C]
                      opacity-0 group-hover:opacity-100 transition-opacity duration-0 "
       />
 

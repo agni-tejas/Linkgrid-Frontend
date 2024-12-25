@@ -7,7 +7,7 @@ import { RecentSearches } from "./RecentSearches";
 import { Footer } from "./Footer";
 import FaceRetouchingNaturalOutlinedIcon from "@mui/icons-material/FaceRetouchingNaturalOutlined";
 import GroupAddOutlinedIcon from "@mui/icons-material/GroupAddOutlined";
-
+import GroupsOutlinedIcon from "@mui/icons-material/GroupsOutlined";
 import ManageSearchOutlinedIcon from "@mui/icons-material/ManageSearchOutlined";
 import InsightsOutlinedIcon from "@mui/icons-material/InsightsOutlined";
 import { useSearchDialog } from "../search/SearchDialogContext";
@@ -52,6 +52,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSectionChange }) => {
       label: "Recommendations",
       count: 5,
     },
+    {
+      id: "groups",
+      icon: <GroupsOutlinedIcon className="w-5 h-5" />,
+      label: "Groups",
+      count: 5,
+    },
   ];
 
   const handleSettingsClick = () => {
@@ -83,6 +89,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSectionChange }) => {
         isCollapsed={isCollapsed}
         onSettingsClick={handleSettingsClick}
         imageUrl="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop"
+        onSectionChange={onSectionChange}
       />
 
       <nav className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent">

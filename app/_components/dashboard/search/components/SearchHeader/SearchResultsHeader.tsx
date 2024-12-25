@@ -4,6 +4,7 @@ import { EditableTitle } from "./EditableTitle";
 import { RelevanceBar } from "./RelevanceBar";
 import { KeyMetrics } from "./KeyMetrics";
 import TypingAnimation from "@/components/ui/typing-animation";
+import PulsingPoint from "@/app/_ui/PulsingPoint";
 
 interface SearchResultsHeaderProps {
   query: string;
@@ -14,6 +15,13 @@ export const SearchResultsHeader: React.FC<SearchResultsHeaderProps> = ({
   query,
   onQueryChange,
 }) => {
+  const sentences = [
+    "Has expertise in HTML, CSS, and JavaScript",
+    "Proficient in frameworks like React, Angular, or Vue.js",
+    "Experience in building responsive web designs",
+    "Skilled in using version control systems like Git",
+  ];
+
   return (
     <div className="space-y-6 pb-6">
       <EditableTitle query={query} onQueryChange={onQueryChange} />
@@ -31,16 +39,32 @@ export const SearchResultsHeader: React.FC<SearchResultsHeaderProps> = ({
         />
       </motion.h2>
 
-      <RelevanceBar />
-      <motion.h2
+      <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-base text-gray-600 dark:text-slate-300 font-medium leading-relaxed"
+        className="space-y-2"
       >
-        Key Stats:
-      </motion.h2>
+        <h2 className="text-base text-gray-600 dark:text-brand-400 font-medium leading-relaxed">
+          Search Overview:
+        </h2>
+        {sentences.map((sentence, index) => (
+          <div key={index} className="flex items-center space-x-2">
+            <PulsingPoint />
+            <TypingAnimation
+              className="text-black font-normal dark:text-[#F5F5F5] tracking-wide "
+              text={sentence}
+            />
+          </div>
+        ))}
+      </motion.div>
 
-      <KeyMetrics />
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className=""
+      >
+        <KeyMetrics />
+      </motion.div>
     </div>
   );
 };

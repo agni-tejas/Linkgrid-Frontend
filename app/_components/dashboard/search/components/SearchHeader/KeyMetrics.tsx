@@ -20,7 +20,9 @@ const MetricItem: React.FC<{
       {icon}
     </div>
     <div>
-      <p className="text-sm text-gray-600 dark:text-gray-300">{label}</p>
+      <p className="text-sm font-medium text-gray-600 dark:text-brand-400">
+        {label}
+      </p>
       <p className="font-semibold text-gray-900 dark:text-slate-200">{value}</p>
     </div>
   </motion.div>
@@ -31,18 +33,8 @@ export const KeyMetrics: React.FC = () => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       <MetricItem
         icon={<UsersIcon className="w-5 h-5 text-brand-500" />}
-        label="Total Matches"
-        value="78 Matches Found"
-      />
-      <MetricItem
-        icon={<MapPinIcon className="w-5 h-5 text-brand-500" />}
-        label="Top Locations"
-        value="New York, San Francisco"
-      />
-      <MetricItem
-        icon={<BuildingOfficeIcon className="w-5 h-5 text-brand-500" />}
-        label="Key Industries"
-        value="AI, FinTech, Marketing"
+        label="Total Matches:"
+        value="28 Matches Found"
       />
     </div>
   );
