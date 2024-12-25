@@ -58,7 +58,7 @@ const Menu = () => {
                     className="flex flex-col justify-end w-full h-full p-4 no-underline rounded-lg outline-none select-none bg-gradient-to-tr from-accent to-accent/50 focus:shadow-md"
                   >
                     <Icons.icon className="w-6 h-6" />
-                    <div className="my-2 text-lg font-normal">Luro AI</div>
+                    <div className="my-2 text-lg font-normal">Linkgrid</div>
                     <p className="text-sm text-muted-foreground">
                       Your ultimate social media management tool
                     </p>
@@ -66,25 +66,25 @@ const Menu = () => {
                 </NavigationMenuLink>
               </li>
               <Item
-                title="Content Calendar"
+                title="AI-Powered"
                 href="/features/content-calendar"
                 icon={<CalendarRangeIcon className="w-5 h-5" />}
               >
-                Plan and visualize your content strategy.
+                AI-Powered Matchmaking
               </Item>
               <Item
-                title="Hashtag Manager"
+                title="Network search"
                 href="/features/hashtag-manager"
                 icon={<HashIcon className="w-5 h-5" />}
               >
-                Research and track trending hashtags.
+                Smart network search
               </Item>
               <Item
-                title="Competitor Analysis"
+                title="Introduction Analysis"
                 href="/features/competitor-analysis"
                 icon={<UsersIcon className="w-5 h-5" />}
               >
-                Monitor and analyze competitor performance.
+                Introductions
               </Item>
             </ul>
           </NavigationMenuContent>
