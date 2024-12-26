@@ -4,14 +4,16 @@ import { SearchInput } from "./SearchInput";
 import { SearchContext } from "./SearchContext";
 import { buttonVariants } from "./animations";
 import { Sparkles } from "lucide-react";
+import { useSearchDialog } from "./SearchDialogContext";
 
 interface SearchFormProps {
   onSubmit: (e: React.FormEvent) => void;
 }
 
 export const SearchForm: React.FC<SearchFormProps> = ({ onSubmit }) => {
-  const { searchQuery, setSearchQuery, isLoading } = useContext(SearchContext);
+  const { searchQuery, setSearchQuery, isLoading } = useSearchDialog();
 
+  console.log(isLoading);
   return (
     <form onSubmit={onSubmit} className="flex flex-col">
       <SearchInput

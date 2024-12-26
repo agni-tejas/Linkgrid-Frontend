@@ -1,11 +1,13 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 
 interface AnimatedCheckmarkProps {
   className?: string;
 }
 
-export const AnimatedCheckmark: React.FC<AnimatedCheckmarkProps> = ({ className = '' }) => {
+export const AnimatedCheckmark: React.FC<AnimatedCheckmarkProps> = ({
+  className = "",
+}) => {
   const pathVariants = {
     hidden: { pathLength: 0, opacity: 0 },
     visible: {
@@ -13,9 +15,9 @@ export const AnimatedCheckmark: React.FC<AnimatedCheckmarkProps> = ({ className 
       opacity: 1,
       transition: {
         pathLength: { type: "spring", duration: 0.8, bounce: 0.2 },
-        opacity: { duration: 0.2 }
-      }
-    }
+        opacity: { duration: 0.2 },
+      },
+    },
   };
 
   const circleVariants = {
@@ -25,9 +27,9 @@ export const AnimatedCheckmark: React.FC<AnimatedCheckmarkProps> = ({ className 
       opacity: 1,
       transition: {
         duration: 0.4,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -38,12 +40,9 @@ export const AnimatedCheckmark: React.FC<AnimatedCheckmarkProps> = ({ className 
     >
       {/* Glow effect */}
       <div className="absolute inset-0 rounded-full bg-green-500/20 blur-md" />
-      
+
       {/* SVG container */}
-      <motion.div
-        variants={circleVariants}
-        className="relative"
-      >
+      <motion.div variants={circleVariants} className="relative">
         <svg
           width="24"
           height="24"
@@ -62,7 +61,7 @@ export const AnimatedCheckmark: React.FC<AnimatedCheckmarkProps> = ({ className 
             className="text-green-500"
             variants={circleVariants}
           />
-          
+
           {/* Checkmark path */}
           <motion.path
             d="M8 12.5L10.5 15L16 9"
@@ -73,13 +72,37 @@ export const AnimatedCheckmark: React.FC<AnimatedCheckmarkProps> = ({ className 
             className="text-white"
             variants={pathVariants}
           />
-          
+
           {/* Particle effects */}
           <g className="animate-ping-slow opacity-50">
-            <circle cx="12" cy="2" r="1" fill="currentColor" className="text-green-300" />
-            <circle cx="22" cy="12" r="1" fill="currentColor" className="text-green-300" />
-            <circle cx="12" cy="22" r="1" fill="currentColor" className="text-green-300" />
-            <circle cx="2" cy="12" r="1" fill="currentColor" className="text-green-300" />
+            <circle
+              cx="12"
+              cy="2"
+              r="1"
+              fill="currentColor"
+              className="text-green-300"
+            />
+            <circle
+              cx="22"
+              cy="12"
+              r="1"
+              fill="currentColor"
+              className="text-green-300"
+            />
+            <circle
+              cx="12"
+              cy="22"
+              r="1"
+              fill="currentColor"
+              className="text-green-300"
+            />
+            <circle
+              cx="2"
+              cy="12"
+              r="1"
+              fill="currentColor"
+              className="text-green-300"
+            />
           </g>
         </svg>
       </motion.div>

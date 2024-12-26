@@ -28,7 +28,7 @@ export const SearchHistoryList: React.FC<SearchHistoryListProps> = ({
       {searches.map((search) => (
         <motion.button
           key={search.id}
-          className="w-full group flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50
+          className="w-full group flex items-start gap-4 p-3 rounded-lg dark:hover:bg-stone-800 hover:bg-gray-50
                      transition-colors duration-200"
           onClick={() => onSearchSelect(search.query)}
           variants={{
@@ -37,7 +37,7 @@ export const SearchHistoryList: React.FC<SearchHistoryListProps> = ({
           }}
         >
           <div className="flex-1">
-            <p className="text-base text-gray-900 text-left font-medium group-hover:text-brand-600">
+            <p className="text-base text-gray-900 dark:text-gray-100 text-left font-medium group-hover:text-brand-600 dark:group-hover:text-brand-400">
               {search.query}
             </p>
             <div className="flex items-center gap-4 mt-1">

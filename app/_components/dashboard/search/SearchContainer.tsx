@@ -18,7 +18,7 @@ export const SearchContainer: React.FC<SearchContainerProps> = ({
       initial="hidden"
       animate="visible"
       exit="exit"
-      className={`bg-white rounded-xl shadow-search backdrop-blur-sm
+      className={`bg-white  w-full rounded-xl shadow-search backdrop-blur-sm
          border-gray-100/50 overflow-hidden
         transition-shadow duration-300 hover:shadow-search-hover
         z-10 relative ${isHistoryDialogOpen ? "hidden" : "block"}`}

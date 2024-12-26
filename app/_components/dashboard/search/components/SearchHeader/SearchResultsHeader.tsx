@@ -5,6 +5,7 @@ import { RelevanceBar } from "./RelevanceBar";
 import { KeyMetrics } from "./KeyMetrics";
 import TypingAnimation from "@/components/ui/typing-animation";
 import PulsingPoint from "@/app/_ui/PulsingPoint";
+import { useSearchDialog } from "../../SearchDialogContext";
 
 interface SearchResultsHeaderProps {
   query: string;
@@ -15,6 +16,8 @@ export const SearchResultsHeader: React.FC<SearchResultsHeaderProps> = ({
   query,
   onQueryChange,
 }) => {
+  const { messages, descriptions, recommendations, msg } = useSearchDialog();
+
   const sentences = [
     "Has expertise in HTML, CSS, and JavaScript",
     "Proficient in frameworks like React, Angular, or Vue.js",
@@ -26,44 +29,49 @@ export const SearchResultsHeader: React.FC<SearchResultsHeaderProps> = ({
     <div className="space-y-6 pb-6">
       <EditableTitle query={query} onQueryChange={onQueryChange} />
 
-      <motion.h2
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-lg  leading-relaxed"
-      >
-        <TypingAnimation
-          className="text-black font-normal dark:text-[#F5F5F5] tracking-wide "
-          text=" We've found 78 incredible individuals matching your search for founders
-        in New York. Of these, 12 are first-degree connections, and 8 have
-        expressed interest in startups this week."
-        />
-      </motion.h2>
+      {msg.map((ms, index) => (
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-lg  leading-relaxed"
+          key={index}
+        >
+          <TypingAnimation
+            className="text-black font-normal dark:text-[#F5F5F5] tracking-wide "
+            text={ms}
+          />
+        </motion.h2>
+      ))}
 
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="space-y-2"
-      >
-        <h2 className="text-base text-gray-600 dark:text-brand-400 font-medium leading-relaxed">
-          Search Overview:
-        </h2>
-        {sentences.map((sentence, index) => (
-          <div key={index} className="flex items-center space-x-2">
-            <PulsingPoint />
-            <TypingAnimation
-              className="text-black font-normal dark:text-[#F5F5F5] tracking-wide "
-              text={sentence}
-            />
-          </div>
-        ))}
-      </motion.div>
+      {descriptions.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="space-y-2"
+        >
+          <h2 className="text-base text-gray-600 dark:text-brand-400 font-medium leading-relaxed">
+            Search Overview:
+          </h2>
+          {descriptions.map((desc, index) => (
+            <div key={index} className="flex items-center space-x-2">
+              <PulsingPoint />
+              <TypingAnimation
+                className="text-black font-normal dark:text-[#F5F5F5] tracking-wide "
+                text={desc}
+              />
+            </div>
+          ))}
+        </motion.div>
+      )}
 
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         className=""
       >
-        <KeyMetrics />
+        {recommendations.length > 0 && (
+          <KeyMetrics onRecommendations={recommendations} />
+        )}
       </motion.div>
     </div>
   );

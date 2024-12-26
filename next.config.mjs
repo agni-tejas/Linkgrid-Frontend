@@ -6,6 +6,7 @@ const nextConfig = {
       "assets.aceternity.com",
       "subdomain",
       "images.unsplash.com",
+      "pbs.twimg.com",
     ],
   },
   reactStrictMode: false,

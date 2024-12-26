@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { Step } from "../../../../_lib/onboarding";
 import { AnimatedCheckmark } from "./AnimatedCheckmark";
 import TaskAltOutlinedIcon from "@mui/icons-material/TaskAltOutlined";
 import ShinyButton from "@/app/_ui/shinybutton";
+import axios from "axios";
 
 interface StepItemProps {
   step: Step;
@@ -21,6 +22,23 @@ export const StepItem: React.FC<StepItemProps> = ({
   isCompleted,
   onComplete,
 }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleTwitter = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(
+        "http://127.0.0.1:8000/api/twitter/signup/register"
+      );
+
+      window.location.href = response.data.auth_url;
+      console.log(window.location.href);
+    } catch (error) {
+      console.error("Error initiating Twitter registration:", error);
+      setIsLoading(false);
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -74,10 +92,10 @@ export const StepItem: React.FC<StepItemProps> = ({
           ) : (
             <ShinyButton
               key="action"
-              onClick={onComplete}
+              onClick={handleTwitter}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-stone-950 "
+              className="bg-black/20 w-32"
             >
               {step.actionLabel}
             </ShinyButton>

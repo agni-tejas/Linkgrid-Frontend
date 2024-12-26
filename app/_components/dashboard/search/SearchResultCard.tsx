@@ -7,21 +7,26 @@ import ShimmerButton from "@/app/_ui/shimmer-button";
 interface SearchResultCardProps {
   id: string;
   name: string;
-  title: string;
-  company: string;
-  imageUrl: string;
-  insights: string[];
+  username: string;
+  description: string;
+  profile_pic_url: string;
+  reason: string;
   isVerified?: boolean;
 }
 
 export const SearchResultCard: React.FC<SearchResultCardProps> = ({
   name,
-  title,
-  company,
-  imageUrl,
-  insights,
+  username,
+  description,
+  profile_pic_url,
+  reason,
   isVerified,
 }) => {
+  const insights = reason
+    .split(".")
+    .map((sentence) => sentence.trim())
+    .filter((sentence) => sentence.length > 0);
+
   return (
     <motion.div
       whileHover={{ y: -4 }}
@@ -44,9 +49,9 @@ export const SearchResultCard: React.FC<SearchResultCardProps> = ({
             whileHover={{ scale: 1.2 }}
             className="relative flex-shrink-0"
           >
-            <div className="relative w-20 h-20">
+            <div className="relative w-16 h-16">
               <Image
-                src={imageUrl}
+                src={profile_pic_url}
                 width={300}
                 height={300}
                 quality={40}
@@ -74,9 +79,11 @@ export const SearchResultCard: React.FC<SearchResultCardProps> = ({
                   {name}
                 </h3>
                 <p className="text-brand-600 dark:text-sky-200 font-medium">
-                  {title}
+                  {username}
                 </p>
-                <p className="text-gray-500 dark:text-slate-400">{company}</p>
+                <p className="text-gray-500 dark:text-slate-400">
+                  {description}
+                </p>
               </div>
 
               {/* Action Buttons */}

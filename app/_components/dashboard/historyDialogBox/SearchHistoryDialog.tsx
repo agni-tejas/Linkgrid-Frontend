@@ -44,7 +44,7 @@ export const SearchHistoryDialog: React.FC<SearchHistoryDialogProps> = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/10 backdrop-blur-sm "
+            className="fixed inset-0 bg-black/10 backdrop-blur-sm z-40"
             onClick={onClose}
           />
           <motion.div
@@ -53,41 +53,41 @@ export const SearchHistoryDialog: React.FC<SearchHistoryDialogProps> = ({
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", bounce: 0.2 }}
             className="fixed left-[25%] top-[10%] -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl
-                       bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
+             bg-white dark:bg-stone-900 rounded-xl shadow-2xl z-50  overflow-hidden"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
             aria-modal="true"
             aria-labelledby="search-history-title"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+            <div className="flex items-center justify-between px-6 py-4 border-b dark:border-sky-900 border-gray-100">
               <h2
                 id="search-history-title"
-                className="text-xl font-semibold text-gray-900"
+                className="text-2xl font-semibold text-gray-900 dark:text-gray-100"
               >
                 Search History
               </h2>
               <button
                 onClick={onClose}
-                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-stone-700 transition-colors"
                 aria-label="Close dialog"
               >
-                <XMarkIcon className="w-5 h-5 text-gray-500" />
+                <XMarkIcon className="w-5 h-5 dark:text-gray-200 text-gray-500" />
               </button>
             </div>
 
             {/* Search Input */}
-            <div className="px-6 py-4 border-b border-gray-100">
+            <div className="px-6 py-4 border-b border-gray-100 dark:border-sky-900">
               <div className="relative">
-                <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-sky-400" />
                 <input
                   ref={searchInputRef}
                   type="text"
                   placeholder="Filter search history..."
                   value={filterQuery}
                   onChange={(e) => setFilterQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200
-                           focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-gray-200 dark:border-gray-800
+                           focus:outline-non dark:bg-stone-700 dark:text-white focus:ring-2 focus:ring-brand-500/20 dark:focus:ring-brand-500/60 dark:focus:border-brand-900 focus:border-brand-500"
                 />
               </div>
             </div>

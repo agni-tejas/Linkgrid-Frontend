@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { fadeInUp } from "./animations";
 import { AnimatedTooltip } from "@/app/_ui/animatedavatars";
 import SparklesText from "@/app/_ui/sparklestext";
+import { useSearchDialog } from "./SearchDialogContext";
 
 const people = [
   {
@@ -50,6 +51,7 @@ const people = [
 ];
 
 export const SearchHeader: React.FC = () => {
+  const { isHistoryDialogOpen } = useSearchDialog();
   return (
     <>
       <motion.h1
@@ -58,13 +60,22 @@ export const SearchHeader: React.FC = () => {
                    bg-gradient-to-r from-sky-500 to-indigo-800 dark:from-sky-500 dark:to-purple-500  bg-clip-text text-transparent
                    tracking-tight"
       >
-        Hello John,
+        Hello Agni,
       </motion.h1>
-      <motion.h1 {...fadeInUp} className="text-7xl font-bold text-center mb-8 ">
+      <motion.h1
+        {...fadeInUp}
+        className={`text-7xl ${
+          isHistoryDialogOpen ? "hidden" : "block"
+        } font-bold text-center mb-8`}
+      >
         <SparklesText text="Discover your network with AI" />
       </motion.h1>
 
-      <div className="flex flex-row items-center justify-center mb-6 w-full">
+      <div
+        className={`flex flex-row items-center justify-center mb-6 w-full ${
+          isHistoryDialogOpen ? "hidden" : "block"
+        }`}
+      >
         <AnimatedTooltip items={people} />
       </div>
       <motion.h2

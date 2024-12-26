@@ -84,11 +84,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSectionChange }) => {
       className="fixed left-0  top-0 h-screen bg-gradient-to-r from-neutral-100 to-white   dark:from-zinc-950 dark:to-zinc-950 shadow-sidebar flex flex-col"
     >
       <ProfileSection
-        name="John Doe"
+        name="Agni Tejas"
         role="Senior Developer"
         isCollapsed={isCollapsed}
         onSettingsClick={handleSettingsClick}
-        imageUrl="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop"
+        imageUrl="https://pbs.twimg.com/profile_images/1285244902926737408/-tlKet0M_400x400.jpg"
         onSectionChange={onSectionChange}
       />
 

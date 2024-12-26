@@ -26,7 +26,7 @@ function Main() {
 
   return (
     <div
-      className="flex w-full bg-gradient-to-r from-[#FFDEE9] via-[#B5FFFC] to-[#EECFF8] dark:from-[#6B298C] dark:via-[#000000] dark:to-[#030B2C]
+      className="flex w-full  bg-gradient-to-r from-[#FFDEE9] via-[#B5FFFC] to-[#EECFF8] dark:from-[#6B298C] dark:via-[#000000] dark:to-[#030B2C]
 
 "
     >

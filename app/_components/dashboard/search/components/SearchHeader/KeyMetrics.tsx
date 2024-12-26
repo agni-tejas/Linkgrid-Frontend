@@ -9,7 +9,7 @@ import {
 const MetricItem: React.FC<{
   icon: React.ReactNode;
   label: string;
-  value: string;
+  value: number;
 }> = ({ icon, label, value }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -28,13 +28,15 @@ const MetricItem: React.FC<{
   </motion.div>
 );
 
-export const KeyMetrics: React.FC = () => {
+export const KeyMetrics: React.FC<{
+  onRecommendations: any;
+}> = ({ onRecommendations }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       <MetricItem
         icon={<UsersIcon className="w-5 h-5 text-brand-500" />}
         label="Total Matches:"
-        value="28 Matches Found"
+        value={onRecommendations.length}
       />
     </div>
   );
